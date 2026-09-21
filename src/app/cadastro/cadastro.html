@@ -1,0 +1,133 @@
+<h2 class="mb-4">★ Cadastro ★</h2>
+
+<form #f="ngForm" (ngSubmit)="cadastrar()" novalidate class="col-12 col-md-8 mx-auto">
+
+  <div class="mb-3">
+    <label for="nome" class="form-label">Nome</label>
+    <input id="nome" class="form-control" name="nome" type="text"
+           [(ngModel)]="nome" required minlength="3" #campoNome="ngModel"
+           [class.is-invalid]="campoNome.invalid && campoNome.touched">
+    <div class="invalid-feedback">Informe seu nome completo.</div>
+  </div>
+
+  <div class="mb-3">
+    <label for="email" class="form-label">E-mail</label>
+    <input id="email" class="form-control" name="email" type="email"
+           [(ngModel)]="email" required email #campoEmail="ngModel"
+           [class.is-invalid]="campoEmail.invalid && campoEmail.touched">
+    <div class="invalid-feedback">Informe um e-mail válido.</div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="senha" class="form-label">Senha</label>
+      <input id="senha" class="form-control" name="senha" type="password"
+             [(ngModel)]="senha" required minlength="6" #campoSenha="ngModel"
+             [class.is-invalid]="campoSenha.invalid && campoSenha.touched">
+      <div class="invalid-feedback">Mínimo de 6 caracteres.</div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="confirmaSenha" class="form-label">Confirmar senha</label>
+      <input id="confirmaSenha" class="form-control" name="confirmaSenha" type="password"
+             [(ngModel)]="confirmaSenha" required #campoConfirma="ngModel"
+             [class.is-invalid]="campoConfirma.touched && !senhasIguais()">
+      <div class="invalid-feedback">As senhas não coincidem.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 mb-3">
+      <label for="cpf" class="form-label">CPF</label>
+      <input id="cpf" class="form-control" name="cpf" type="text"
+             placeholder="000.000.000-00"
+             [(ngModel)]="cpf" required #campoCpf="ngModel"
+             [class.is-invalid]="campoCpf.touched && !vCpf(cpf)">
+      <div class="invalid-feedback">Informe um CPF com 11 dígitos.</div>
+    </div>
+
+    <div class="col-md-6 mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input id="telefone" class="form-control" name="telefone" type="text"
+             placeholder="(00) 00000-0000"
+             [(ngModel)]="telefone" required #campoTelefone="ngModel"
+             [class.is-invalid]="campoTelefone.touched && !vTelefone(telefone)">
+      <div class="invalid-feedback">Informe um telefone válido (com DDD).</div>
+    </div>
+  </div>
+
+  <hr class="my-4">
+  <h3 class="endereco-titulo">Endereço de entrega</h3>
+
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <label for="cep" class="form-label">CEP</label>
+      <input id="cep" class="form-control" name="cep" type="text"
+             placeholder="00000-000"
+             [(ngModel)]="cep" required #campoCep="ngModel"
+             [class.is-invalid]="campoCep.touched && !vCep(cep)">
+      <div class="invalid-feedback">Informe um CEP com 8 dígitos.</div>
+    </div>
+
+    <div class="col-md-8 mb-3">
+      <label for="rua" class="form-label">Rua</label>
+      <input id="rua" class="form-control" name="rua" type="text"
+             [(ngModel)]="rua" required minlength="3" #campoRua="ngModel"
+             [class.is-invalid]="campoRua.invalid && campoRua.touched">
+      <div class="invalid-feedback">Informe o nome da rua.</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mb-3">
+      <label for="numero" class="form-label">Número</label>
+      <input id="numero" class="form-control" name="numero" type="text"
+             [(ngModel)]="numero" required #campoNumero="ngModel"
+             [class.is-invalid]="campoNumero.invalid && campoNumero.touched">
+      <div class="invalid-feedback">Informe o número.</div>
+    </div>
+
+    <div class="col-md-4 mb-3">
+      <label for="bairro" class="form-label">Bairro</label>
+      <input id="bairro" class="form-control" name="bairro" type="text"
+             [(ngModel)]="bairro" required #campoBairro="ngModel"
+             [class.is-invalid]="campoBairro.invalid && campoBairro.touched">
+      <div class="invalid-feedback">Informe o bairro.</div>
+    </div>
+
+    <div class="col-md-3 mb-3">
+      <label for="cidade" class="form-label">Cidade</label>
+      <input id="cidade" class="form-control" name="cidade" type="text"
+             [(ngModel)]="cidade" required #campoCidade="ngModel"
+             [class.is-invalid]="campoCidade.invalid && campoCidade.touched">
+      <div class="invalid-feedback">Informe a cidade.</div>
+    </div>
+
+    <div class="col-md-2 mb-4">
+      <label for="estado" class="form-label">UF</label>
+      <select id="estado" class="form-select" name="estado"
+              [(ngModel)]="estado" required #campoEstado="ngModel"
+              [class.is-invalid]="campoEstado.invalid && campoEstado.touched">
+        <option value="" disabled>UF</option>
+        <option>AC</option><option>AL</option><option>AP</option><option>AM</option>
+        <option>BA</option><option>CE</option><option>DF</option><option>ES</option>
+        <option>GO</option><option>MA</option><option>MT</option><option>MS</option>
+        <option>MG</option><option>PA</option><option>PB</option><option>PR</option>
+        <option>PE</option><option>PI</option><option>RJ</option><option>RN</option>
+        <option>RS</option><option>RO</option><option>RR</option><option>SC</option>
+        <option>SP</option><option>SE</option><option>TO</option>
+      </select>
+      <div class="invalid-feedback">Selecione o estado.</div>
+    </div>
+  </div>
+
+  <button class="btn-arcade w-100 mt-2"
+          [disabled]="f.invalid || !vCpf(cpf) || !vTelefone(telefone) || !vCep(cep) || !senhasIguais()">
+    Cadastrar
+  </button>
+
+  <div class="text-center mt-3">
+    <a routerLink="/login">Já tenho cadastro</a>
+  </div>
+
+</form>

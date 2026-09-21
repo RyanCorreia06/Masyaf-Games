@@ -1,0 +1,57 @@
+:root {
+  --fundo: #120a2a;
+  --fundo-card: #1c1240;
+  --ciano: #00e5ff;
+  --magenta: #ff2bd6;
+  --amarelo: #ffd93d;
+  --texto: #f0eaff;
+}
+
+body {
+  margin: 0;
+  color: var(--texto);
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  background-color: var(--fundo);
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.5;
+}
+
+h2 {
+  color: var(--ciano);
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px var(--ciano);
+}
+
+a {
+  color: var(--ciano);
+}
+
+/* Botão estilo fliperama (vale para todo o site) */
+.btn-arcade {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: #120a2a;
+  background: var(--amarelo);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 5px 0 #b8940f;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-arcade:hover {
+  filter: brightness(1.1);
+}
+
+.btn-arcade:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #b8940f;
+}

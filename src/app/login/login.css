@@ -1,0 +1,19 @@
+.painel {
+  background: var(--fundo-card);
+  border: 2px solid var(--ciano);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.25);
+  height: 100%;
+}
+
+.painel h3 {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.9rem;
+  color: var(--ciano);
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  color: var(--texto);
+}

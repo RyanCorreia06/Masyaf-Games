@@ -1,0 +1,24 @@
+<header class="cabecalho">
+  <div class="topo">
+    <a routerLink="/" class="logo">
+      <img src="/logo.png" alt="Masyaf Games">
+    </a>
+
+    <form class="busca" (submit)="buscar($event, termo.value)">
+      <input #termo class="form-control" type="search" placeholder="Buscar jogos">
+      <button class="btn btn-light" type="submit">OK</button>
+    </form>
+
+    <div class="acoes">
+      <a routerLink="/login" title="Entrar / Cadastro" class="usuario">👤</a>
+      <a routerLink="/cesta" title="Cesta" class="cesta">
+        <img src="/shopping-cart.png" alt="Carrinho de Compras">
+      </a>
+    </div>
+  </div>
+
+  <nav class="nav-links">
+    <a routerLink="/">Home</a>
+    <a routerLink="/">Games</a>
+  </nav>
+</header>

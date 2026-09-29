@@ -1,0 +1,107 @@
+:root {
+  --fundo: #120a2a;
+  --fundo-card: #1c1240;
+  --ciano: #00e5ff;
+  --magenta: #ff2bd6;
+  --amarelo: #ffd93d;
+  --texto: #f0eaff;
+}
+
+body {
+  margin: 0;
+  color: var(--texto);
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  background-color: var(--fundo);
+  background-image:
+    linear-gradient(rgba(0, 229, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 255, 0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'Press Start 2P', monospace;
+  line-height: 1.5;
+}
+
+h2 {
+  color: var(--ciano);
+  font-size: 1.2rem;
+  text-shadow: 0 0 8px var(--ciano);
+}
+
+a {
+  color: var(--ciano);
+}
+
+
+.btn-arcade {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: #120a2a;
+  background: var(--amarelo);
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  box-shadow: 0 5px 0 #b8940f;
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+
+.btn-arcade:hover {
+  filter: brightness(1.1);
+}
+
+.btn-arcade:active {
+  transform: translateY(4px);
+  box-shadow: 0 1px 0 #b8940f;
+}
+
+/* Cards de produto (vale para Vitrine, Categoria, etc.) */
+.card {
+  background: var(--fundo-card);
+  color: var(--texto);
+  border: 2px solid var(--ciano);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.35);
+  transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--magenta);
+  box-shadow: 0 0 22px rgba(255, 43, 214, 0.7);
+}
+
+.card a {
+  display: block;
+  background: #0a0620;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: contain;
+  padding: 10px;
+}
+
+.card-body {
+  gap: 0.5rem;
+}
+
+.card-title {
+  font-size: 0.75rem;
+  color: var(--texto);
+}
+
+.card-body span {
+  font-size: 1.6rem;
+  color: var(--amarelo);
+  text-shadow: 0 0 6px rgba(255, 217, 61, 0.6);
+}
+
+@media (max-width: 576px) {
+  .card-img-top {
+    height: 140px;
+  }
+}

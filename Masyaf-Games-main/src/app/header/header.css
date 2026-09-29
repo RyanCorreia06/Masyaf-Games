@@ -1,0 +1,135 @@
+.cabecalho {
+  background: linear-gradient(180deg, #1c1240 0%, #120a2a 100%);
+  border-bottom: 2px solid var(--ciano);
+  box-shadow: 0 4px 20px rgba(0, 229, 255, 0.35);
+  padding: 1rem 0;
+  position: relative;
+}
+
+.cabecalho::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: -2px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--ciano), var(--magenta), var(--ciano));
+  opacity: 0.8;
+}
+
+.topo {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.logo img {
+  height: 70px;
+  display: block;
+  border: 2px solid var(--ciano);
+  border-radius: 6px;
+  box-shadow: 0 0 14px var(--ciano);
+}
+
+.busca {
+  flex: 1;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.busca input {
+  font-family: 'VT323', monospace;
+  font-size: 1.3rem;
+  color: var(--ciano);
+  background: #0a0620;
+  border: 2px solid var(--ciano);
+  border-radius: 4px;
+}
+
+.busca input::placeholder {
+  color: rgba(0, 229, 255, 0.5);
+}
+
+.busca input:focus {
+  box-shadow: 0 0 10px var(--ciano);
+  background: #0a0620;
+  color: var(--ciano);
+  border-color: var(--ciano);
+}
+
+.busca button {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.65rem;
+  background: var(--magenta);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  box-shadow: 0 4px 0 #a3157f;
+  padding: 0 1rem;
+}
+
+.busca button:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 0 #a3157f;
+}
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.usuario {
+  font-size: 1.8rem;
+  text-decoration: none;
+  filter: drop-shadow(0 0 6px var(--ciano));
+}
+
+.cesta img {
+  height: 36px;
+  display: block;
+  filter: invert(1) drop-shadow(0 0 6px var(--ciano));
+}
+
+.nav-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  margin-top: 1rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid rgba(0, 229, 255, 0.2);
+  max-width: 1140px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.nav-links a {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.7rem;
+  color: var(--texto);
+  text-decoration: none;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links a:hover {
+  color: var(--amarelo);
+  text-shadow: 0 0 8px var(--amarelo);
+  border-bottom-color: var(--amarelo);
+}
+
+@media (max-width: 576px) {
+  .topo {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .busca {
+    order: 3;
+    flex-basis: 100%;
+  }
+  .nav-links {
+    gap: 1.25rem;
+  }
+}

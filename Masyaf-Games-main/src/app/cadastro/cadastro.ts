@@ -25,11 +25,6 @@ export class Cadastro {
   cidade = '';
   estado = '';
 
-  vEmail(value: string): boolean {
-    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return regex.test(value);
-  }
-
   vCpf(value: string): boolean {
     const digitos = value.replace(/\D/g, '');
     return digitos.length === 11;
@@ -50,6 +45,20 @@ export class Cadastro {
   }
 
   cadastrar() {
+    const usuario = {
+      nome: this.nome,
+      email: this.email,
+      senha: this.senha,
+      cpf: this.cpf,
+      telefone: this.telefone,
+      cep: this.cep,
+      rua: this.rua,
+      numero: this.numero,
+      bairro: this.bairro,
+      cidade: this.cidade,
+      estado: this.estado
+    };
+    localStorage.setItem('masyaf-usuario', JSON.stringify(usuario));
     alert('Cadastro realizado com sucesso!');
     this.router.navigate(['/login']);
   }

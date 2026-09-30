@@ -23,6 +23,10 @@ export class CestaService {
     this.itens().reduce((soma, item) => soma + item.produto.preco * item.qtd, 0)
   );
 
+  quantidadeItens = computed(() =>
+    this.itens().reduce((soma, item) => soma + item.qtd, 0)
+  );
+
   constructor() {
     effect(() => {
       if (this.isBrowser) {

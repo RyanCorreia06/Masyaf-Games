@@ -96,4 +96,9 @@ export class ProdutoService {
       p => p.plataforma.toLowerCase() === plataforma.toLowerCase()
     );
   }
+
+  buscarPorNome(termo: string): Produto[] {
+    const texto = termo.toLowerCase().trim();
+    return this.produtos.filter(p => p.nome.toLowerCase().includes(texto));
+  }
 }

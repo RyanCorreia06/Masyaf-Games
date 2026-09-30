@@ -1,5 +1,6 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, computed } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { toSignal } from '@angular/core/rxjs-interop';
 import { CurrencyPipe } from '@angular/common';
 import { CestaService, Produto } from '../cesta/cesta-service';
 import { ProdutoService } from '../produto/produto-service';
@@ -15,15 +16,13 @@ export class Categoria {
   private produtoService = inject(ProdutoService);
   cesta = inject(CestaService);
 
-  plataforma = '';
-  produtos: Produto[] = [];
+  private paramMap = toSignal(this.route.paramMap);
 
-  constructor() {
-    this.route.paramMap.subscribe(params => {
-      this.plataforma = params.get('plataforma') ?? '';
-      this.produtos = this.produtoService.listarPorPlataforma(this.plataforma);
-    });
-  }
+  plataforma = computed(() => this.paramMap()?.get('plataforma') ?? '');
+
+  produtos = computed(() =>
+    this.produtoService.listarPorPlataforma(this.plataforma())
+  );
 
   comprar(p: Produto) {
     this.cesta.adicionar(p);

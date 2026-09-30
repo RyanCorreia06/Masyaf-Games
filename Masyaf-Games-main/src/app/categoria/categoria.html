@@ -1,7 +1,7 @@
-<h2 class="mb-4">★ {{ plataforma }} ★</h2>
+<h2 class="mb-4">★ {{ plataforma() }} ★</h2>
 
 <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-  @for (p of produtos; track p.id) {
+  @for (p of produtos(); track p.id) {
     <div class="col">
       <div class="card h-100">
         <a [routerLink]="['/produto', p.id]">
@@ -12,7 +12,10 @@
             <h5 class="card-title mb-1">{{ p.nome }}</h5>
             <span>{{ p.preco | currency:'BRL' }}</span>
           </div>
-          <button class="btn-arcade" (click)="comprar(p)">Comprar</button>
+          <div class="d-flex flex-column gap-1">
+            <a [routerLink]="['/produto', p.id]" class="btn btn-outline-info btn-sm">Detalhes</a>
+            <button class="btn-arcade" (click)="comprar(p)">Comprar</button>
+          </div>
         </div>
       </div>
     </div>

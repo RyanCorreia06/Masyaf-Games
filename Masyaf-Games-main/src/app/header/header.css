@@ -86,10 +86,31 @@
   filter: drop-shadow(0 0 6px var(--ciano));
 }
 
+.cesta {
+  position: relative;
+}
+
 .cesta img {
   height: 36px;
   display: block;
   filter: invert(1) drop-shadow(0 0 6px var(--ciano));
+}
+
+.badge-cesta {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--magenta);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  min-width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  box-shadow: 0 0 6px var(--magenta);
 }
 
 .nav-links {

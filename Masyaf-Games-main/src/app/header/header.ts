@@ -1,5 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import { CestaService } from '../cesta/cesta-service';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { Router, RouterLink } from '@angular/router';
 })
 export class Header {
   router = inject(Router);
+  cesta = inject(CestaService);
 
   buscar(evento: Event, texto: string) {
     evento.preventDefault();

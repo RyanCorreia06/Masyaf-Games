@@ -1,0 +1,31 @@
+<header class="cabecalho">
+  <div class="topo">
+    <a routerLink="/" class="logo">
+      <img src="/logo.png" alt="Masyaf Games">
+    </a>
+
+    <form class="busca" (submit)="buscar($event, termo.value)">
+      <input #termo class="form-control" type="search" placeholder="Buscar jogos">
+      <button class="btn btn-light" type="submit">OK</button>
+    </form>
+
+    <div class="acoes">
+      <a routerLink="/login" title="Entrar / Cadastro" class="usuario">👤</a>
+      <a routerLink="/cesta" title="Cesta" class="cesta">
+        <img src="/shopping-cart.png" alt="Carrinho de Compras">
+        @if (cesta.quantidadeItens() > 0) {
+          <span class="badge-cesta">{{ cesta.quantidadeItens() }}</span>
+        }
+      </a>
+    </div>
+  </div>
+
+<nav class="nav-links">
+  <a routerLink="/">Games</a>
+  <a routerLink="/categoria/PS3"> PS3</a>
+  <a routerLink="/categoria/PS4">PS4</a>
+  <a routerLink="/categoria/Xbox360">Xbox 360</a>
+  <a routerLink="/categoria/XboxOne">Xbox One</a>
+  <a routerLink="/categoria/Nintendo"> Nintendo</a>
+</nav>
+</header>

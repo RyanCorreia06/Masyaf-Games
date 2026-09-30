@@ -1,0 +1,19 @@
+@if (produto) {
+  <div class="detalhe-produto">
+    <div class="detalhe-imagem">
+      <img [src]="produto.imagem" [alt]="produto.nome">
+    </div>
+    <div class="detalhe-info">
+      <span class="plataforma-tag">{{ produto.plataforma }}</span>
+      <h1>{{ produto.nome }}</h1>
+      <p class="descricao">{{ produto.descricao }}</p>
+      <div class="compra-box">
+        <span class="preco">{{ produto.preco | currency:'BRL' }}</span>
+        <button class="btn-arcade" (click)="comprar()">Comprar</button>
+        <a routerLink="/cesta" class="ver-cesta">Ver cesta</a>
+      </div>
+    </div>
+  </div>
+} @else {
+  <p>Produto não encontrado.</p>
+}

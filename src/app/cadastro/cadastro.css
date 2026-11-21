@@ -1,0 +1,23 @@
+form {
+  background: var(--fundo-card);
+  border: 2px solid var(--ciano);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 0 14px rgba(0, 229, 255, 0.25);
+}
+
+.form-label {
+  color: var(--texto);
+}
+
+.endereco-titulo {
+  font-family: 'Press Start 2P', monospace;
+  font-size: 0.85rem;
+  color: var(--ciano);
+  margin-bottom: 1rem;
+}
+
+hr {
+  border-color: var(--ciano);
+  opacity: 0.4;
+}
